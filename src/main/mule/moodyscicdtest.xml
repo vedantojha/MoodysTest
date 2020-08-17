@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7f8c6b91-133b-4e5c-b9c5-980f2dd3b09a" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="925d8f12-8b4f-49db-b63f-61c09432e564" >
+		<http:request-connection host="worldtimeapi.org" />
+	</http:request-config>
+	<flow name="moodyscicdtestFlow" doc:id="1454c609-5e2f-46ae-8d35-7c1ebf29d1d9" >
+		<http:listener doc:name="Listener" doc:id="37db78cb-d25d-43e6-bc2b-640409bc6d92" config-ref="HTTP_Listener_config" path="/moodysCICD" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Params" doc:id="093330f4-a89e-4f90-9f97-b851a4d555ad" message="#[[
+	attributes.queryParams.city,
+	attributes.queryParams.region
+	]]"/>
+		<http:request method="GET" doc:name="TimezoneWS" doc:id="680f0016-218f-4aa1-af50-9d21da9a4058" path="/api/timezone/{region}/{city}" config-ref="HTTP_Request_configuration">
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	city : attributes.queryParams.city,
+	region : attributes.queryParams.region
+}]]]></http:uri-params>
+		</http:request>
+		<logger level="INFO" doc:name="After outbound REST" doc:id="d8a368e4-5de7-4f18-ae58-c3c87ea2935a" message="#[payload]"/>
+	</flow>
+</mule>
