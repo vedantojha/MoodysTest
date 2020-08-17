@@ -32,6 +32,18 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				
+				<cloudHubDeployment>
+				<uri>https://anypoint.mulesoft.com/</uri>
+				<username>vedant_august</username>
+				<environment>Sandbox</environment>
+				<workers>1</workers>
+				<workerType>Micro</workerType>
+				<applicationName>MoodysCICDTest</applicationName>
+				<password>notTODAY#2</password>
+				<muleVersion>4.3.0</muleVersion>
+				
+                </cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
