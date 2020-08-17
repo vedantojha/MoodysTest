@@ -4,6 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
+	
 	<artifactId>moodyscicdtest</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule-application</packaging>
@@ -14,6 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <app.runtime>4.3.0</app.runtime>
+        
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
 
