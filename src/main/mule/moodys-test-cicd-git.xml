@@ -35,7 +35,7 @@ output application/json
 payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<validation:is-not-null doc:name="Is not null" doc:id="2f532684-d9b2-4e52-a977-f6b9d1944212" value="#[payload]" message="Null response"/>
+		<validation:is-not-null doc:name="Payload Validation" doc:id="2f532684-d9b2-4e52-a977-f6b9d1944212" value="#[payload]" message="Null response"/>
 		<logger level="INFO" doc:name="After outbound REST" doc:id="d8a368e4-5de7-4f18-ae58-c3c87ea2935a" message="#[payload]"/>
 	</flow>
 </mule>
