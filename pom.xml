@@ -33,16 +33,18 @@
 				<configuration>
 				
 				<cloudHubDeployment>
-				<uri>https://anypoint.mulesoft.com/</uri>
-				<username>vedant_august</username>
+		
+				<username>vedant_september</username>
 				<environment>Sandbox</environment>
 				<workers>1</workers>
 				<workerType>Micro</workerType>
-				<applicationName>moodyscicdtest</applicationName>
-				<password>NOTtoday2</password>
+				<applicationName>moodys-test-cicd-git</applicationName>
+				<password>notTODAY#2</password>
 				<muleVersion>4.3.0</muleVersion>
+				<objectStoreV2>true</objectStoreV2>
+				</cloudHubDeployment>
 				
-                </cloudHubDeployment>
+                
 				</configuration>
 			</plugin>
 		</plugins>
