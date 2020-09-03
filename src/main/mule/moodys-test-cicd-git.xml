@@ -15,7 +15,7 @@ http://www.mulesoft.org/schema/mule/sockets http://www.mulesoft.org/schema/mule/
 	</http:request-config>
 	<flow name="moodyscicdtestFlow" doc:id="1454c609-5e2f-46ae-8d35-7c1ebf29d1d9" >
 		<http:listener doc:name="Listener" doc:id="37db78cb-d25d-43e6-bc2b-640409bc6d92" config-ref="HTTP_Listener_config" path="/moodysCICD" allowedMethods="GET"/>
-		<logger level="INFO" doc:name="Params" doc:id="093330f4-a89e-4f90-9f97-b851a4d555ad" message="#[[
+		<logger level="INFO" doc:name="ParamsCheck" doc:id="093330f4-a89e-4f90-9f97-b851a4d555ad" message="#[[
 	attributes.queryParams.city,
 	attributes.queryParams.region
 	]]"/>
